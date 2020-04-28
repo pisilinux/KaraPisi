@@ -8,7 +8,7 @@
             <Name>Blue Devil</Name>
             <Email>bluedevil@sctzine.com</Email>
         </Packager>
-        <PartOf>cracking.cracker</PartOf>
+        <PartOf>security.cracking.cracker</PartOf>
         <License>GPL</License>
         <IsA>app:console</IsA>
         <Summary>Decrypts password stored in CMOS used to access BIOS setup.</Summary>
