@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>cmospwd</Name>
+        <Homepage>http://www.cgsecurity.org/wiki/CmosPwd</Homepage>
+        <Packager>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Packager>
+        <PartOf>security.cracking.cracker</PartOf>
+        <License>GPL</License>
+        <IsA>app:console</IsA>
+        <Summary>Decrypts password stored in CMOS used to access BIOS setup.</Summary>
+        <Description>CmosPwd decrypts password stored in cmos used to access BIOS SETUP. With CmosPwd, you can also backup, restore and erase/kill cmos.</Description>
+        <Archive sha1sum="8b691bb1dda26471dfef445549c3a0891c401d1f" type="tarbz2">https://www.cgsecurity.org/cmospwd-5.1.tar.bz2</Archive>
+    </Source>
+
+    <Package>
+        <Name>cmospwd</Name>
+        <Summary>Decrypts password stored in CMOS used to access BIOS setup.</Summary>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2020-04-28</Date>
+            <Version>5.1</Version>
+            <Comment>Minor version bump.</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2016-04-24</Date>
+            <Version>5.0</Version>
+            <Comment>First Pisi Built</Comment>
+            <Name>İbrahim KARAGÜZEL</Name>
+            <Email>karaguzelibrahim@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>crypthook</Name>
+        <Homepage>https://github.com/chokepoint/CryptHook</Homepage>
+        <Packager>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Packager>
+        <PartOf>security.cryptography.misc</PartOf>
+        <License>MIT</License>
+        <IsA>library</IsA>
+        <Summary>TCP/UDP symmetric encryption tunnel wrapper.</Summary>
+        <Description>CryptHook is a modular implementation for securing existing applications with symmetrical block cipher encryption. It works by hooking the base system calls for network communication send/sendto and recv/recvfrom. CryptHook will work with existing applications that rely on these system calls.</Description>
+        <Archive sha1sum="715b68bed8c84b89fcc9c50610825b8bf83c38a4" type="targz">https://github.com/chokepoint/CryptHook/archive/v0.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>openssl-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>crypthook</Name>
+        <Summary>TCP/UDP symmetric encryption tunnel wrapper.</Summary>
+        <RuntimeDependencies>
+            <Dependency>openssl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/crypthook</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2020-04-28</Date>
+            <Version>0.1</Version>
+            <Comment>Clean and fix url.</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2016-04-22</Date>
+            <Version>0.0</Version>
+            <Comment>First Pisi Built</Comment>
+            <Name>İbrahim KARAGÜZEL</Name>
+            <Email>karaguzelibrahim@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

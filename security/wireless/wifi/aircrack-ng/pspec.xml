@@ -8,7 +8,7 @@
             <Name>Blue DeviL</Name>
             <Email>bluedevil@sctzine.com</Email>
         </Packager>
-        <PartOf>wireless.wifi</PartOf>
+        <PartOf>security.wireless.wifi</PartOf>
         <License>GPLv2</License>
         <IsA>app:console</IsA>
         <Summary>Aircrack-ng is a complete suite of tools to assess WiFi network security.</Summary>
