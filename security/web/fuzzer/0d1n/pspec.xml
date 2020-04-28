@@ -9,7 +9,7 @@
             <Email>bluedevil@sctzine.com</Email>
         </Packager>
         <License>GPLv3</License>
-        <PartOf>web.fuzzer</PartOf>
+        <PartOf>security.web.fuzzer</PartOf>
         <IsA>app:console</IsA>
         <Summary>Web security tool to make fuzzing at HTTP inputs, made in C with libCurl.</Summary>
         <Description>0d1n is a Open Source web application bruteforcer and Fuzzer, its objective is to automate exhaustive tests to search anomalies. At other point view this anomalies can be a vulnerability, These tests can follow web parameters, files, directories, forms and others.</Description>
