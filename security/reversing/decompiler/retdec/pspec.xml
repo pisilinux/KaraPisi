@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>retdec</Name>
+        <Homepage>https://retdec.com/</Homepage>
+        <Packager>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Packager>
+        <PartOf>programming.debug</PartOf>
+        <License>MIT</License>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <Summary>RetDec is a retargetable machine-code decompiler based on LLVM.</Summary>
+        <Description>RetDec is an open-source retargetable machine-code decompiler based on LLVM. The supported file formats are ELF, PE, Mach-O, COFF, AR (archive), Intel HEX and raw machine code. Supported architectures are 32-bit: Intel x86, ARM, MIPS, PIC32, and PowerPC 64-bit: x86-64.</Description>
+        <Archive sha1sum="bb5a40be6f435717ccdbfa4697ef5a2b93de7fbc" type="targz">https://github.com/avast/retdec/archive/v4.0.tar.gz</Archive>
+        <Archive sha1sum="f1a527961533a0afb4a20cd048e53a2eb86eace1" type="tarxz" target="retdec-4.0/retdec-support">https://github.com/avast/retdec-support/releases/download/2019-03-08/retdec-support_2019-03-08.tar.xz</Archive>
+        <BuildDependencies>
+            <Dependency>llvm</Dependency>
+            <Dependency>cmake</Dependency>
+            <Dependency>valgrind</Dependency>
+            <Dependency>zlib-devel</Dependency>
+            <Dependency>openssl-devel</Dependency>
+            <Dependency>python3-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!-- To avoid sandbox exceptions i patched main CMakeLists file -->
+            <Patch>SCTZineCMakeListsPisiFix.patch</Patch>
+            <!-- To fix and disable libdwarf's rpath 
+            <Patch>SCT-libdwarf-CMakeLists.patch</Patch>-->
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>retdec</Name>
+        <Summary>RetDec is a retargetable machine-code decompiler based on LLVM.</Summary>
+        <RuntimeDependencies>
+            <Dependency>zlib</Dependency>
+            <Dependency>openssl</Dependency>
+            <Dependency>python3</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <!-- retdec executables -->
+            <Path fileType="executable">/usr/bin/</Path>
+            <!-- retdec libraries 
+            <Path fileType="library">/usr/lib/libretdec-libdwarf.so</Path>
+            <Path fileType="library">/usr/lib/libretdec-libelf.so</Path>-->
+            <!-- retdec data and doc files -->
+            <Path fileType="doc">/usr/share/doc/retdec</Path>
+            <Path fileType="data">/usr/share/retdec</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>retdec-devel</Name>
+        <Summary>Development files for retdec</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">retdec</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include/</Path>
+            <!-- retdec static libraries -->
+            <Path fileType="library">/usr/lib/retdec</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2020-04-20</Date>
+            <Version>4.0</Version>
+            <Comment>Major Version bump.</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2020-02-27</Date>
+            <Version>3.3</Version>
+            <Comment>First pisi release.</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
+    </History>
+</PISI>
