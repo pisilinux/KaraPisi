@@ -1,0 +1,55 @@
+--- support.orig/CMakeLists.txt	2020-04-07 23:09:28.000000000 +0200
++++ support/CMakeLists.txt	2020-04-28 13:03:34.387943557 +0200
+@@ -6,8 +6,8 @@
+ 
+ set(CMAKE_INSTALL_MESSAGE LAZY)
+ set(SUPPORT_TARGET_DIR "${RETDEC_INSTALL_SUPPORT_DIR_ABS}")
+-set(YARAC_PATH         "${RETDEC_INSTALL_BIN_DIR_ABS}/retdec-yarac${CMAKE_EXECUTABLE_SUFFIX}")
+-set(YARAC_VERSION_PATH "${SUPPORT_TARGET_DIR}/version-yarac.txt")
++set(YARAC_PATH         "/var/pisi/retdec-4.0-2/install/usr/bin/retdec-yarac${CMAKE_EXECUTABLE_SUFFIX}")
++set(YARAC_VERSION_PATH "/var/pisi/retdec-4.0-2/install/usr/share/retdec/support/version-yarac.txt")
+ 
+ # Clean the support target directory if YARA compilation flag changed.
+ #
+@@ -46,20 +46,22 @@
+ 	endif()
+ ")
+ 
++# 2020-02-29 - BlueDeviL note: We manually download the binary
++
+ # Get and install external support package from the retdec-support repository.
+ # This step may erase the entire target support directory, so it needs to go
+ # first.
+ #
+-install(CODE "
+-	execute_process(
+-		# -u = unbuffered -> print debug messages right away.
+-		COMMAND \"${PYTHON_EXECUTABLE}\" -u \"${CMAKE_SOURCE_DIR}/support/install-share.py\" \"${CMAKE_INSTALL_PREFIX}\" \"${SUPPORT_PKG_URL}\" \"${SUPPORT_PKG_SHA256}\" \"${SUPPORT_PKG_VERSION}\"
+-		RESULT_VARIABLE INSTALL_SHARE_RES
+-	)
+-	if(INSTALL_SHARE_RES)
+-		message(FATAL_ERROR \"RetDec share directory installation FAILED\")
+-	endif()
+-")
++#install(CODE "
++#	execute_process(
++#		# -u = unbuffered -> print debug messages right away.
++#		COMMAND \"${PYTHON_EXECUTABLE}\" -u \"${CMAKE_SOURCE_DIR}/support/install-share.py\" \"${CMAKE_INSTALL_PREFIX}\" \"${SUPPORT_PKG_URL}\" \"${SUPPORT_PKG_SHA256}\" \"${SUPPORT_PKG_VERSION}\"
++#		RESULT_VARIABLE INSTALL_SHARE_RES
++#	)
++#	if(INSTALL_SHARE_RES)
++#		message(FATAL_ERROR \"RetDec share directory installation FAILED\")
++#	endif()
++#")
+ 
+ # Write currently used yarac version to the support directory.
+ #
+@@ -97,7 +99,7 @@
+ 	execute_process(
+ 		COMMAND \"${PYTHON_EXECUTABLE}\" -u \"${YARA_INSTALL_PY}\"
+ 			\"${YARAC_PATH}\"
+-			\"${SUPPORT_TARGET_DIR}\"
++			\"/var/pisi/retdec-4.0-2/install/usr/share/retdec/support\"
+ 			\"${CMAKE_SOURCE_DIR}/support/yara_patterns\"
+ 			${RETDEC_COMPILE_YARA}
+ 		RESULT_VARIABLE INSTALL_YARA_RES
