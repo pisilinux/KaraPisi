@@ -5,4 +5,10 @@
         <Summary xml:lang="tr">Kötücül Yazılım Çözümleme Aracı</Summary>
         <Description xml:lang="tr">Kötücül yazılım araştırmacıları için, zararlıları çözümleyebilen, tanılayabilen ve sınıflandırabilen bir araçtır.</Description>
     </Source>
+
+    <Package>
+        <Name>yara-devel</Name>
+        <Summary xml:lang="tr">yara için geliştirme dosyaları</Summary>
+        <Description xml:lang="tr">yara-devel, yara için geliştirme dosyalarını içerir.</Description>
+    </Package>
 </PISI>
