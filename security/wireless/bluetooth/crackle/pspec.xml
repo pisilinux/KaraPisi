@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>crackle</Name>
+        <Homepage>https://lacklustre.net/projects/crackle/</Homepage>
+        <Packager>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Packager>
+        <PartOf>wireless.bluetooth</PartOf>
+        <License>BSD</License>
+        <IsA>app:console</IsA>
+        <Summary>crackle cracks Bluetooth Smart (BLE) encryption.</Summary>
+        <Description>It exploits a flaw in the pairing mechanism that leaves all communications vulnerable to decryption by passive eavesdroppers. crackle can guess or very quickly brute force the TK (temporary key) used in the pairing modes supported by most devices. With this TK, crackle can derive all further keys used during the encrypted session that immediately follows pairing. The LTK (long-term key) is typically exchanged in this encrypted session, and it is the key used to encrypt all future communications between the master and slave.</Description>
+        <Archive type="targz" sha1sum="b30d91d090efe01d7b32810b4f4dbf4ae2a941ec">https://github.com/mikeryan/crackle/archive/0.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libpcap-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>crackle</Name>
+        <Summary>crackle cracks Bluetooth Smart (BLE) encryption.</Summary>
+        <RuntimeDependencies>
+            <Dependency>libpcap</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2020-06-08</Date>
+            <Version>0.1</Version>
+            <Comment>moved from contrib</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>macchanger</Name>
+        <Homepage>https://github.com/alobbs/macchanger</Homepage>
+        <Packager>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Packager>
+        <PartOf>network.misc</PartOf>
+        <IsA>app:console</IsA>
+        <License>GPLv2</License>
+        <Summary>Utility for viewing/manipulating the MAC address of network interfaces.</Summary>
+        <Description>A GNU/Linux utility for viewing/manipulating the MAC address of network interfaces.</Description>
+        <Archive sha1sum="9183f7866657c883dd152cdd50d2878973ba44ae" type="targz">https://github.com/alobbs/macchanger/archive/1.7.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>texinfo</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>macchanger</Name>
+        <Summary>Utility for viewing/manipulating the MAC address of network interfaces.</Summary>
+        <Files>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="info">/usr/share/info</Path>
+            <Path fileType="data">/usr/share/macchanger</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2020-06-08</Date>
+            <Version>1.7.0</Version>
+            <Comment>Moved from contrib</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
+    </History>
+</PISI>
