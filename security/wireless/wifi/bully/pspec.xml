@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>bully</Name>
+        <Homepage>https://github.com/kimocoder/bully/</Homepage>
+        <Packager>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Packager>
+        <PartOf>security.wireless.wifi</PartOf>
+        <License>GPLv3</License>
+        <IsA>app:console</IsA>
+        <Summary>Implementation of the WPS brute force attack, written in C</Summary>
+        <Description>Bully is a new implementation of the WPS brute force attack, written in C. It is conceptually identical to other programs, in that it exploits the (now well known) design flaw in the WPS specification. It has several advantages over the original reaver code. These include fewer dependencies, improved memory and cpu performance, correct handling of endianness, and a more robust set of options. It runs on Linux, and was specifically developed to run on embedded Linux systems (OpenWrt, etc) regardless of architecture.</Description>
+        <!--<Archive type="targz" sha1sum="87a43ce8b99d9a05ba2a2eebdc3a7d7adf4c38ad">https://github.com/aanarchyy/bully/archive/1.1.tar.gz</Archive>-->
+        <Archive type="targz" sha1sum="fdc5263bc5d1e5178179727dc4bd07e58d11b260">https://github.com/kimocoder/bully/archive/1.4-00.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libpcap-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!-- Removed OpenSSL dependency 
+            <Patch level="0">04185d7b1d1a7909f47f23fbd85691401c7fabd7.patch</Patch>-->
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>bully</Name>
+        <Summary>Implementation of the WPS brute force attack, written in C</Summary>
+        <RuntimeDependencies>
+            <Dependency>libpcap</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2020-07-21</Date>
+            <Version>1.4.0</Version>
+            <Comment>Minor version bump.</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
+    </History>
+</PISI>
