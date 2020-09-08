@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>keystone</Name>
+        <Homepage>https://www.keystone-engine.org/</Homepage>
+        <Packager>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Packager>
+        <PartOf>programming.language.assembly</PartOf>
+        <License>GPL2</License>
+        <IsA>library</IsA>
+        <IsA>app:console</IsA>
+        <Summary>Keystone assembler framework.</Summary>
+        <Description>Keystone is a lightweight multi-platform, multi-architecture assembler framework. Keystone assembler framework: Core (Arm, Arm64, Hexagon, Mips, PowerPC, Sparc, SystemZ and X86) + bindings.</Description>
+        <Archive sha1sum="2d90381bbac53da0feced9ccecb9d9ef32523fef" type="targz">https://github.com/keystone-engine/keystone/archive/0.9.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>cmake</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>keystone</Name>
+        <Summary>Keystone assembler framework.</Summary>
+        <RuntimeDependencies>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+        </Files>
+    </Package>
+    
+    <Package>
+        <Name>keystone-devel</Name>
+        <Summary>Development files for keystone</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">keystone</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2020-09-08</Date>
+            <Version>0.9.2</Version>
+            <Comment>First Pisi Release</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
+    </History>
+</PISI>
