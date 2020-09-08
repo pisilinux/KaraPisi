@@ -13,7 +13,7 @@
         <IsA>app:console</IsA>
         <Summary>Utility to examine and tune ethernet-based network interfaces</Summary>
         <Description>ethtool is used for querying and changing settings of an ethernet device.</Description>
-        <Archive sha1sum="c0c60ed42fed7dcacc196b44d75500c1b811aa93" type="tarxz">https://mirrors.edge.kernel.org/pub/software/network/ethtool/ethtool-5.7.tar.xz</Archive>
+        <Archive sha1sum="b16ecf0ede1635f8a8abac9b8db58b831f408f7b" type="tarxz">https://mirrors.edge.kernel.org/pub/software/network/ethtool/ethtool-5.8.tar.xz</Archive>
         <BuildDependencies>
             <Dependency>libmnl-devel</Dependency>
         </BuildDependencies>
@@ -34,6 +34,13 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2020-09-07</Date>
+            <Version>5.8</Version>
+            <Comment>Minor version bump.</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
         <Update release="5">
             <Date>2020-07-22</Date>
             <Version>5.7</Version>
