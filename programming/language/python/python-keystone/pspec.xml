@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>python-keystone</Name>
+        <Homepage>https://www.keystone-engine.org/</Homepage>
+        <Packager>
+            <Name>Blue DeviL</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Packager>
+        <PartOf>programming.language.python</PartOf>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>Python bindings for keystone engine.</Summary>
+        <Description>Keystone provides lightweight multi-platform, multi-architecture assembly framework. python-keystone is python bindings for keystone engine</Description>
+        <Archive sha1sum="2d90381bbac53da0feced9ccecb9d9ef32523fef" type="targz">https://github.com/keystone-engine/keystone/archive/0.9.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>cmake</Dependency>
+            <Dependency>python-devel</Dependency>
+            <Dependency>keystone-devel</Dependency>
+            <Dependency>python-setuptools</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>python-keystone</Name>
+        <Summary>keystone module for python</Summary>
+        <RuntimeDependencies>
+            <Dependency>python</Dependency>
+            <Dependency>keystone</Dependency>
+            <Dependency>python-setuptools</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="library">/usr/lib/python*</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2020-09-08</Date>
+            <Version>0.9.2</Version>
+            <Comment>First Pisi Release.</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
+    </History>
+</PISI>
