@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>capstone</Name>
+        <Summary xml:lang="tr">Çoklu platformlu, çoklu mimarili "disassembly" çerçevesi</Summary>
+        <Description xml:lang="tr">Capstone disassembly çerçevesi: Arm, Arm64, BPF, EVM, M68K, M680X, MOS65xx, Mips, PPC, RISCV, Sparc, SystemZ, TMS320C64x, Web Assembly, X86, X86_64, XCore çekirdek mimarilerini destekleyen disasembly çerçevesi sunar.</Description>
+    </Source>
+
+    <Package>
+        <Name>capstone-devel</Name>
+        <Summary xml:lang="tr">capstone için geliştirme dosyaları</Summary>
+        <Description xml:lang="tr">capstone-devel, capstone için geliştirme dosyalarını içerir.</Description>
+    </Package>
+</PISI>

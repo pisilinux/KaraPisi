@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>capstone</Name>
+        <Homepage>http://www.capstone-engine.org/</Homepage>
+        <Packager>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Packager>
+        <PartOf>security.reversing.disassembler</PartOf>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <IsA>app:console</IsA>
+        <Summary>Lightweight multi-platform, multi-architecture disassembly framework.</Summary>
+        <Description>Capstone disassembly/disassembler framework: Core (Arm, Arm64, BPF, EVM, M68K, M680X, MOS65xx, Mips, PPC, RISCV, Sparc, SystemZ, TMS320C64x, Web Assembly, X86, X86_64, XCore) + bindings.</Description>
+        <Archive sha1sum="c0dfa4f6236a4505916ce67d63b856bf806b0d83" type="targz">https://github.com/aquynh/capstone/archive/4.0.2.tar.gz</Archive>
+        <BuildDependencies>
+            <!--Dependency></Dependency-->
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>capstone</Name>
+        <Summary>Lightweight multi-platform, multi-architecture disassembly framework.</Summary>
+        <RuntimeDependencies>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+        </Files>
+    </Package>
+    
+    <Package>
+        <Name>capstone-devel</Name>
+        <Summary>Development files for capstone</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">capstone</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2020-09-07</Date>
+            <Version>4.0.2</Version>
+            <Comment>First Pisi Release</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
+    </History>
+</PISI>
