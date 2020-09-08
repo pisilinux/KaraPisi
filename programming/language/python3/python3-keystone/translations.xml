@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>python3-keystone</Name>
+        <Summary xml:lang="tr">Python3 için keystone modülü</Summary>
+        <Description xml:lang="tr">Çoklu platformlu, çoklu mimarili "assembly" çerçevesi olan keystone için python bağlayıcıları sağlar.</Description>
+    </Source>
+</PISI>
