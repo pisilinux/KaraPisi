@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>keystone</Name>
+        <Summary xml:lang="tr">Çoklu platformlu, çoklu mimarili "assembler" çerçevesi</Summary>
+        <Description xml:lang="tr">Keystone assembler çerçevesi: AArm, Arm64, Hexagon, Mips, PowerPC, Sparc, SystemZ ve X86, XCore çekirdek mimarilerini destekleyen assembly çerçevesi sunar.</Description>
+    </Source>
+
+    <Package>
+        <Name>keystone-devel</Name>
+        <Summary xml:lang="tr">keystone için geliştirme dosyaları</Summary>
+        <Description xml:lang="tr">keystone-devel, keystone için geliştirme dosyalarını içerir.</Description>
+    </Package>
+</PISI>

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>python3-capstone</Name>
+        <Summary xml:lang="tr">Python3 için capstone modülü</Summary>
+        <Description xml:lang="tr">Çoklu platformlu, çoklu mimarili "disassembly" çerçevesi olan Capstone için python bağlayıcıları sağlar.</Description>
+    </Source>
+</PISI>
