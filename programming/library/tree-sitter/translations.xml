@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>tree-sitter</Name>
+        <Summary xml:lang="tr">Programlama araçları için artımlı çözümleme sistemi.</Summary>
+        <Description xml:lang="tr">tree-sitter,  programlama araçları için artımlı çözümleme sistemi sunar.</Description>
+    </Source>
+
+    <Package>
+        <Name>tree-sitter-devel</Name>
+        <Summary xml:lang="tr">tree-sitter için geliştirme dosyaları</Summary>
+        <Description xml:lang="tr">tree-sitter-devel, tree-sitter için geliştirme dosyalarını içerir.</Description>
+    </Package>
+</PISI>
