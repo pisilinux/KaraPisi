@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>radare2</Name>
+        <Homepage>https://www.radare.org/n/</Homepage>
+        <Packager>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Packager>
+        <PartOf>security.reversing.disassembler</PartOf>
+        <License>LGPLv3.0</License>
+        <Summary>UNIX-like reverse engineering framework and command-line toolset</Summary>
+        <Description>Radare project started as a forensics tool, a scriptable command-line hexadecimal editor able to open disk files, but later added support for analyzing binaries, disassembling code, debugging programs, attaching to remote gdb servers...</Description>
+        <Archive sha1sum="bc8c91b46f2f93aa91d53a1bb42c42b1eed03416" type="targz">https://github.com/radareorg/radare2/archive/4.5.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>meson</Dependency>
+            <Dependency>lz4-devel</Dependency>
+            <Dependency>libuv-devel</Dependency>
+            <Dependency>libzip-devel</Dependency>
+            <Dependency>xxhash-devel</Dependency>
+            <Dependency>openssl-devel</Dependency>
+            <Dependency>capstone-devel</Dependency>
+            <Dependency>tree-sitter-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>radare2</Name>
+        <Summary>Library for reading and writing Jcat files</Summary>
+        <RuntimeDependencies>
+            <Dependency>lz4</Dependency>
+            <Dependency>libuv</Dependency>
+            <Dependency>libzip</Dependency>
+            <Dependency>xxhash</Dependency>
+            <Dependency>openssl</Dependency>
+            <Dependency>capstone</Dependency>
+            <Dependency>tree-sitter</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib/libr*</Path>
+            <Path fileType="data">/usr/share/radare2</Path>
+            <Path fileType="data">/usr/share/zsh/site-functions</Path>
+        </Files>
+    </Package>
+    
+    <Package>
+        <Name>radare2-devel</Name>
+        <Summary>Development files for radare2</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">radare2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib/pkgconfig</Path>
+        </Files>
+    </Package>
+    
+    <Package>
+        <Name>radare2-docs</Name>
+        <Summary>Documentation files for radare2</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">radare2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2020-09-07</Date>
+            <Version>4.5.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
+    </History>
+</PISI>

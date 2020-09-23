@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>emscripten</Name>
+        <Homepage>https://emscripten.org/</Homepage>
+        <Packager>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Packager>
+        <PartOf>programming.library</PartOf>
+        <License>MIT</License>
+        <Summary>Compile C and C++ into highly-optimizable JavaScript for the web</Summary>
+        <Description>Emscripten is a toolchain for compiling to asm.js and WebAssembly, built using LLVM, that lets you run C and C++ on the web at near-native speed without plugins.</Description>
+        <Archive sha1sum="f2e1c49e067b9ae9fd555efa1508e8d618b8abec" type="targz">https://github.com/emscripten-core/emscripten/archive/2.0.4.tar.gz</Archive>
+        <Archive sha1sum="40a333d44f4b52b4226a43d27574d72a963af8b4" type="targz" target="emscripten-2.0.4">https://github.com/llvm/llvm-project/archive/llvmorg-10.0.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>git</Dependency>
+            <Dependency>cmake</Dependency>
+            <Dependency>meson</Dependency>
+            <Dependency>libxml2-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>emscripten</Name>
+        <Summary>Emscripten is a toolchain for compiling to asm.js and WebAssembly, built using LLVM, that lets you run C and C++ on the web at near-native speed without plugins.</Summary>
+        <RuntimeDependencies>
+            <Dependency>acorn</Dependency>
+            <Dependency>python3</Dependency>
+            <Dependency>binaryen</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/lib/emscripten/</Path>
+            <Path fileType="doc">/usr/share/doc/emscripten</Path>
+            <Path fileType="data">/opt/emscripten-llvm/share</Path>
+            <Path fileType="library">/opt/emscripten-llvm/lib</Path>
+            <Path fileType="data">/etc/profile.d/emscripten.sh</Path>
+            <Path fileType="executable">/opt/emscripten-llvm/bin</Path>
+            <Path fileType="header">/opt/emscripten-llvm/include</Path>
+            <Path fileType="executable">/opt/emscripten-llvm/libexec</Path>
+            <Path fileType="man">/opt/emscripten-llvm/share/man/man1/scan-build.1</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" target="/usr/lib/emscripten/.emscripten" group="root" permission="0644">emscripten-config</AdditionalFile>
+            <AdditionalFile owner="root" target="/etc/profile.d/emscripten.sh" permission="0755">emscripten.sh </AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+    
+    <!-- According to do file structure i omitted devel package
+         Because this is already a devel package
+    <Package>
+        <Name>emscripten-devel</Name>
+        <Summary>Development files for emscripten</Summary>
+        <RuntimeDependencies>
+            <Dependency release="current">emscripten</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/opt/emscripten-llvm/include</Path>
+        </Files>
+    </Package>
+    -->
+
+    <History>
+        <Update release="1">
+            <Date>2020-09-08</Date>
+            <Version>2.0.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
+    </History>
+</PISI>
