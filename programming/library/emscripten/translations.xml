@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>emscripten</Name>
+        <Summary xml:lang="tr">C ve C++ kodunu JavaScripte derler.</Summary>
+        <Description xml:lang="tr">emscripten, LLVM kullanılarak yazılan, web üzerinde eklentiler olmadan neredeyse "native" hızlarda C ve C++ koşmanıza izin veren, asm.js ve WebAssembly derlemek için  bir araçlar zinciridir.</Description>
+    </Source>
+    <!--
+    <Package>
+        <Name>emscripten-devel</Name>
+        <Summary xml:lang="tr">emscripten için geliştirme dosyaları</Summary>
+        <Description xml:lang="tr">emscripten-devel, emscripten için geliştirme dosyalarını içerir.</Description>
+    </Package>
+    -->
+</PISI>
