@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<PISI>
+    <Source>
+        <Name>radare2</Name>
+        <Summary xml:lang="tr">UNIX-benzeri, yazılım ters mühendislik ortamı ve komut satırı araçları.</Summary>
+        <Description xml:lang="tr">Bir adli bilişim projesi olarak başlayan Radare2, UNIX-benzeri, yazılım ters mühendislik ortamı ve komut satırı araçları sunar.</Description>
+    </Source>
+
+    <Package>
+        <Name>radare2-devel</Name>
+        <Summary xml:lang="tr">radare2 için geliştirme dosyaları</Summary>
+        <Description xml:lang="tr">radare2-devel, radare2 için geliştirme dosyalarını içerir.</Description>
+    </Package>
+    
+    <Package>
+        <Name>radare2-docs</Name>
+        <Summary xml:lang="tr">radare2 için belgelendirme dosyaları</Summary>
+        <Description xml:lang="tr">radare2-docs, radare2 için belgelendirme dosyalarını içerir.</Description>
+    </Package>
+</PISI>
