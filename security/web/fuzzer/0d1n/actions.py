@@ -7,9 +7,10 @@ from pisi.actionsapi import get
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-    
+
 def build():
     autotools.make()
+
 
 def install():
     pisitools.insinto("/usr/bin", "bin/0d1n")
