@@ -12,6 +12,7 @@ from pisi.actionsapi import pythonmodules
 def build():
     pythonmodules.compile(pyVer="3")
 
+
 def install():
     pythonmodules.install(pyVer="3")
     pisitools.dodoc("API*")
