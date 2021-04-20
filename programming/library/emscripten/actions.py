@@ -13,11 +13,14 @@ from pisi.actionsapi import shelltools
 
 def setup():
     # we dont pull the sources via git, we should by pass git command
-    pisitools.dosed("tools/install.py", "add_revision_file\(target\)\n", "#add_revision_file(target)\n")
+    pisitools.dosed("tools/install.py", "add_revision_file\(target\)\n",
+                                        "#add_revision_file(target)\n")
     # suppress compiler warnings
     options = ''.join([
-              '"-Wno-array-bounds ',
+              '"-Wno-cast-qual ',
+              '-Wno-array-bounds ',
               '-Wno-uninitialized ',
+              '-Wno-unused-function ',
               '-Wno-unused-variable ',
               '-Wno-pessimizing-move ',
               '-Wno-init-list-lifetime ',
@@ -26,7 +29,7 @@ def setup():
               '-Wno-nonportable-include-path"'])
 
     # Inspired from https://github.com/WebAssembly/waterfall/blob/db2ea5eeb11b74cce9b9459be0cc88807744b1b5/src/build.py#L868
-    shelltools.cd("llvm-project-llvmorg-10.0.1/llvm")
+    shelltools.cd("llvm-project-llvmorg-12.0.0/llvm")
     shelltools.makedirs("build")
     shelltools.cd("build")
     cmaketools.configure("-Bbuild \
@@ -49,7 +52,7 @@ def setup():
                           -DCLANG_INCLUDE_TESTS=OFF" % options, sourceDir="..")
     
 def build():
-    shelltools.cd("llvm-project-llvmorg-10.0.1/llvm/build")
+    shelltools.cd("llvm-project-llvmorg-12.0.0/llvm/build")
     mesontools.build()
 
 def install():
@@ -59,28 +62,89 @@ def install():
     and
     https://github.com/WebAssembly/waterfall/blob/d4a504ffee488a68d09b336897c00d404544601d/src/build.py#L91
     """
-    shelltools.cd("llvm-project-llvmorg-10.0.1/llvm/build")
+    shelltools.cd("llvm-project-llvmorg-12.0.0/llvm/build")
     mesontools.install()
     
     # let's clean up some unnecessary binaries:
-    for bindel in ["clang-check", "clang-cl", "clang-cpp", "clang-extdef-mapping", "clang-format", "clang-offload-bundler", "clang-refactor", "clang-rename", "clang-scan-deps", "lld-link", "ld.lld", "llvm-lib"]:
+    for bindel in ["ld.lld",
+                   "clang-check",
+                   "clang-cl",
+                   "lld-link",
+                   "llvm-lib",
+                   "clang-cpp",
+                   "clang-format",
+                   "clang-rename",
+                   "clang-refactor",
+                   "clang-scan-deps",
+                   "clang-extdef-mapping",
+                   "clang-offload-bundler"]:
         pisitools.remove("/opt/emscripten-llvm/bin/%s" % bindel)
+
     pisitools.remove("/opt/emscripten-llvm/lib/libclang.so")
     pisitools.removeDir("/opt/emscripten-llvm/share")
     
     # copy needed stuff which doesn't come by default
-    for binneed in ["llvm-as", "llvm-dis", "FileCheck", "llc", "llvm-link", "llvm-mc", "llvm-readobj", "opt", "llvm-dwarfdump"]:
+    for binneed in ["llc",
+                    "opt",
+                    "llvm-as",
+                    "llvm-mc",
+                    "llvm-dis",
+                    "FileCheck",
+                    "llvm-link",
+                    "llvm-readobj",
+                    "llvm-dwarfdump"]:
         pisitools.insinto("/opt/emscripten-llvm/bin/", "build/bin/%s" % binneed)
     
     # now install emscripten
     shelltools.cd("../../..")
     autotools.rawInstall("DESTDIR=%s/usr/lib/emscripten" % get.installDIR())
 
-    # make symlinks under /usr/bin 'cuz i got probles on setting PATH
-    for em_bin in ["em++", "em++.bat", "em++.py", "em-config", "em-config.bat", "em-config.py", "emar", "emar.bat", "emar.py", "embuilder", "embuilder.bat", "embuilder.py", "emcc", "emcc.bat", "emcc.py", "emcmake", "emcmake.bat", "emcmake.py", "emconfigure", "emconfigure.bat", "emconfigure.py", "emlink.py", "emmake", "emmake.bat", "emmake.py", "emranlib", "emranlib.bat", "emranlib.py", "emrun", "emrun.bat", "emrun.py", "emscons", "emscons.bat", "emscons.py", "emscripten-revision.txt", "emscripten-version.txt", "emscripten.py", "emsize", "emsize.bat", "emsize.py"]:
-        pisitools.dosym("/usr/lib/emscripten/%s" % em_bin, "/usr/bin/%s" % em_bin)
+    # make symlinks under /usr/bin 'cuz i got problems on setting PATH
+    for em_bin in ["em++",
+                   "emar",
+                   "emcc",
+                   "emrun",
+                   "emsize",
+                   "emmake",
+                   "em++.py",
+                   "emar.py",
+                   "emcc.py",
+                   "emcmake",
+                   "emscons",
+                   "em++.bat",
+                   "emcc.bat",
+                   "emranlib",
+                   "emar.bat",
+                   "emrun.py",
+                   "em-config",
+                   "embuilder",
+                   "emlink.py",
+                   "emmake.py",
+                   "emrun.bat",
+                   "emsize.py",
+                   "emmake.bat",
+                   "emscons.py",
+                   "emsize.bat",
+                   "emcmake.py",
+                   "emcmake.bat",
+                   "emconfigure",
+                   "emranlib.py",
+                   "emscons.bat",
+                   "embuilder.py",
+                   "emranlib.bat",
+                   "em-config.py",
+                   "em-config.bat",
+                   "embuilder.bat",
+                   "emscripten.py",
+                   "emconfigure.py",
+                   "emconfigure.bat",
+                   "emscripten-version.txt",
+                   "emscripten-revision.txt"]:
+        pisitools.dosym("/usr/lib/emscripten/%s" % em_bin,
+                        "/usr/bin/%s" % em_bin)
 
     # create docs and make symlink
-    pisitools.dosym("/usr/lib/emscripten/docs", "/usr/share/doc/%s/docs" % get.srcNAME())
+    pisitools.dosym("/usr/lib/emscripten/docs",
+                    "/usr/share/doc/%s/docs" % get.srcNAME())
 
     pisitools.dodoc("LICENSE*", "README*")

@@ -24,10 +24,12 @@ def build():
     shelltools.cd("cli")
     shelltools.system("cargo build --release --locked --all-features")
 
+
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     
     # install executable manually:
     pisitools.dobin("target/release/tree-sitter")
     pisitools.dodoc("LICENSE", "README*")
-    pisitools.insinto("/usr/share/doc/tree-sitter", "%s/%s/docs" % (get.workDIR(), get.srcNAME()+"-"+get.srcVERSION()))
+    pisitools.insinto("/usr/share/doc/tree-sitter", "%s/%s/docs" %
+                      (get.workDIR(), get.srcNAME()+"-"+get.srcVERSION()))

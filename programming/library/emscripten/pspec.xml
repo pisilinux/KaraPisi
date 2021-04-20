@@ -12,13 +12,15 @@
         <License>MIT</License>
         <Summary>Compile C and C++ into highly-optimizable JavaScript for the web</Summary>
         <Description>Emscripten is a toolchain for compiling to asm.js and WebAssembly, built using LLVM, that lets you run C and C++ on the web at near-native speed without plugins.</Description>
-        <Archive sha1sum="f2e1c49e067b9ae9fd555efa1508e8d618b8abec" type="targz">https://github.com/emscripten-core/emscripten/archive/2.0.4.tar.gz</Archive>
-        <Archive sha1sum="40a333d44f4b52b4226a43d27574d72a963af8b4" type="targz" target="emscripten-2.0.4">https://github.com/llvm/llvm-project/archive/llvmorg-10.0.1.tar.gz</Archive>
+        <Archive sha1sum="0a8fc346052c034b5d6ef346d11cdc7fe1045beb" type="targz">https://github.com/emscripten-core/emscripten/archive/2.0.17.tar.gz</Archive>
+        <Archive sha1sum="842d2e18633d27261100cbdef90e7f1840068bbc" type="targz" target="emscripten-2.0.17">https://github.com/llvm/llvm-project/archive/llvmorg-12.0.0.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>git</Dependency>
             <Dependency>cmake</Dependency>
             <Dependency>meson</Dependency>
+            <Dependency>nodejs</Dependency>
             <Dependency>libxml2-devel</Dependency>
+            <Dependency>binaryen-devel</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -64,8 +66,14 @@
         </Files>
     </Package>
     -->
-
     <History>
+        <Update release="2">
+            <Date>2021-04-16</Date>
+            <Version>2.0.14</Version>
+            <Comment>Patch version bump.</Comment>
+            <Name>Blue Devil</Name>
+            <Email>bluedevil@sctzine.com</Email>
+        </Update>
         <Update release="1">
             <Date>2020-09-08</Date>
             <Version>2.0.4</Version>
