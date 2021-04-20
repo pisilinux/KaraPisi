@@ -7,11 +7,13 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import mesontools
 
+
 def setup():
     # suppress compiler warnings
     options = ''.join([
               '-Wno-unused-result ',
               '-Wno-format-overflow ',
+              '-Wno-return-local-addr ',
               '-Wno-stringop-overflow ',
               '-Wno-stringop-truncation ',
               '-Wno-maybe-uninitialized ',
@@ -29,11 +31,14 @@ def setup():
                           -D use_sys_openssl=true \
                           -D use_sys_capstone=true \
                           -D use_sys_tree_sitter=true")
-    
+
+
 def build():
     mesontools.build()
 
+
 def install():
     mesontools.install()
-    pisitools.dosym("/usr/bin/radare2", "/usr/bin/r2")
-    pisitools.dosym("/usr/share/man/man1/radare2.1.gz", "/usr/share/man/man1/r2.1.gz")
+    #pisitools.dosym("/usr/bin/radare2", "/usr/bin/r2")
+    pisitools.dosym("/usr/share/man/man1/radare2.1.gz",
+                    "/usr/share/man/man1/r2.1.gz")
